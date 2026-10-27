@@ -1,0 +1,51 @@
+{
+  "products": {
+    "mizze": {
+      "title": "Mizze IOS Safe",
+      "image": "https://raw.githubusercontent.com/MinhBeoStore/BEO-MOD-Z/main/IMG_0890.jpeg",
+      "packages": [
+        {
+          "name": "Day",
+          "price": "20.000đ"
+        },
+        {
+          "name": "Week",
+          "price": "75.000đ"
+        },
+        {
+          "name": "Month",
+          "price": "160.000đ"
+        }
+      ]
+    },
+    "migul": {
+      "title": "IPA Migul Pro",
+      "image": "https://raw.githubusercontent.com/MinhBeoStore/BEO-MOD-Z/main/IMG_0888.jpeg",
+      "packages": [
+        {
+          "name": "Day",
+          "price": "60.000đ"
+        },
+        {
+          "name": "Week",
+          "price": "150.000đ"
+        },
+        {
+          "name": "Month",
+          "price": "250.000đ"
+        }
+      ]
+    },
+    "tipa": {
+      "title": "TIPA SUDO",
+      "image": "https://raw.githubusercontent.com/MinhBeoStore/BEO-MOD-Z/main/IMG_0889.jpeg",
+      "packages": [
+        {
+          "name": "Month",
+          "price": "170.000đ"
+        }
+      ]
+    }
+  },
+  "telegram": "https://t.me/muadong_paris"
+}
