@@ -35,6 +35,17 @@
           "price": "250.000đ"
         }
       ]
+    },
+    "delta-proxy": {
+      "title": "DELTA PROXY",
+      "image": "xnhau.com",
+      "note": "Anti đến khi ban",
+      "packages": [
+        {
+          "name": "Month",
+          "price": "100.000.000đ"
+        }
+      ]
     }
   },
   "telegram": "https://t.me/muadong_paris"
