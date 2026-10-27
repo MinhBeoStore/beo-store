@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <title>béo bèo beo</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Nhận Làm Bio Như Này ạ"/>
+    <meta name="keywords" content=""/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://sf-static.upanhlaylink.com/img/image_2026040386bdab7879600d2bee033f35ee854787.jpg">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <style>
+        :root { --primary: #3b82f6; }
+        @keyframes fall { to { transform: translateY(110vh) rotate(360deg); } }
+        .snowflakes { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 100; }
+        .snowflake { color: #fff; font-size: 1.2em; position: absolute; top: -10%; animation: fall linear infinite; opacity: 0.5; }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.116);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .glass-card:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.082);
+            border-color: var(--primary);
+            box-shadow: 0 15px 35px rgba(59, 130, 246, 0.15);
+        }
+        .avatar-container{ position:relative; width:120px; height:120px; display:flex; justify-content:center; align-items:center; padding:0; margin:0 auto; }
+        .avatar-container::before{ display:none !important; }
+        .btn-action {
+            background: white; width: 50px; height: 50px; border-radius: 16px;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.06); color: #1e293b; transition: 0.3s;
+            flex-shrink: 0; border: 1px solid rgba(255,255,255,0.8);
+        }
+        .btn-action:hover { background: var(--primary); color: white; transform: rotate(8deg) scale(1.1); }
+        .particles { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; }
+        .particle { position: absolute; width: 4px; height: 4px; background: white; border-radius: 50%; opacity: 0.6; animation: floatParticle linear infinite; }
+        @keyframes floatParticle {
+            from { transform: translateY(100vh) scale(0.5); opacity: 0; }
+            20% { opacity: 1; }
+            to { transform: translateY(-10vh) scale(1); opacity: 0; }
+        }
+        .mouse-glow {
+            position: fixed; width: 200px; height: 200px;
+            background: radial-gradient(circle, rgba(127,127,213,0.25), transparent 70%);
+            border-radius: 50%; pointer-events: none; transform: translate(-50%, -50%);
+            z-index: 2; transition: 0.05s linear;
+        }
+        .verify { width: 31px; height: 31px; margin-left: 2px; vertical-align: -3px; }
+        .left-col { position: relative; z-index: 10; }
+        #overlay {
+            position: fixed; inset: 0; background: rgba(10, 10, 20, 0);
+            backdrop-filter: blur(0px); opacity: 0; pointer-events: none;
+            transition: all 0.4s ease; z-index: 9998;
+        }
+        #overlay.active { opacity: 1; pointer-events: auto; }
+        .bg-dynamic { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; overflow: hidden; }
+        .bg-dynamic img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
+        .bg-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; }
+        .music-controls {
+            position: fixed; bottom: 20px; right: 20px; display: flex; gap: 10px; z-index: 1000;
+            background: rgba(255, 255, 255, 0.096); padding: 12px; border-radius: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); backdrop-filter: blur(10px);
+        }
+        .music-btn {
+            width: 45px; height: 45px; background: rgba(251, 251, 252, 0.089); color: white;
+            border: none; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            cursor: pointer; font-size: 1.1rem; transition: all 0.3s ease;
+        }
+        .music-btn:hover { transform: scale(1.1); }
+        .select-btn { background: rgba(156, 89, 182, 0.452) !important; }
+        .song-list-panel {
+            position: fixed; bottom: 100px; right: 20px; background: rgba(255, 255, 255, 0.089);
+            backdrop-filter: blur(2px); border-radius: 15px; padding: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); z-index: 1001; width: 250px;
+            opacity: 0; transform: translateY(20px); transition: all 0.3s ease; pointer-events: none;
+        }
+        .song-list-panel.show { opacity: 1; transform: translateY(0); pointer-events: all; }
+        .song-list-header {
+            display: flex; justify-content: space-between; align-items: center;
+            margin-bottom: 10px; padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2); font-weight: 600; color: #fff;
+        }
+        .close-list-btn { background: none; border: none; cursor: pointer; color: #ccc; font-size: 1.2rem; }
+        .song-list-content { max-height: 200px; overflow-y: auto; }
+        .song-list-item {
+            display: flex; align-items: center; gap: 10px; padding: 10px; border-radius: 8px;
+            cursor: pointer; transition: all 0.2s ease; font-size: 14px; color: #fff; margin-bottom: 5px;
+        }
+        .song-list-item.active { background: rgba(77, 171, 247, 0.3); color: #4dabf7; }
+        .song-notification {
+            position: fixed; top: 20px; left: 50%; transform: translateX(-50%) translateY(-100px);
+            background: rgba(0, 0, 0, 0.473); color: white; padding: 12px 25px;
+            border-radius: 30px; z-index: 1002; backdrop-filter: blur(7px);
+            transition: all 0.5s ease; opacity: 0;
+        }
+        .song-notification.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+        .side-banner {
+            position: fixed; top: 50%; transform: translateY(-50%);
+            width: clamp(120px, 14vw, 220px); max-height: calc(100vh - 140px);
+            z-index: 25; border-radius: 18px; overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.5);
+            box-shadow: 0 18px 55px rgba(0,0,0,0.25);
+            background: rgba(255,255,255,0.12); backdrop-filter: blur(8px);
+        }
+        .side-banner.left { left: 24px; }
+        .side-banner img { display: block; width: 100%; max-height: calc(100vh - 140px); object-fit: cover; }
+        @media (max-width: 1023px) { .side-banner { display: none; } }
+        .product-thumb {
+            width: 56px; height: 56px; min-width: 56px; min-height: 56px;
+            border-radius: 16px; object-fit: cover;
+            border: 2px solid rgba(255,255,255,0.9);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.12); flex-shrink: 0;
+        }
+        .price-modal-backdrop {
+            position: fixed; inset: 0; z-index: 10000;
+            background: rgba(0,0,0,0.7); backdrop-filter: blur(10px);
+            display: none; align-items: center; justify-content: center;
+            padding: 16px; opacity: 0; transition: opacity 0.3s ease;
+        }
+        .price-modal-backdrop.active { display: flex; opacity: 1; }
+        .price-modal {
+            width: 100%; max-width: 420px;
+            background: linear-gradient(160deg, #ffffff 0%, #f1f5ff 100%);
+            border-radius: 28px; box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+            overflow: hidden; transform: translateY(
