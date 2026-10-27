@@ -35,16 +35,6 @@
           "price": "250.000đ"
         }
       ]
-    },
-    "tipa": {
-      "title": "TIPA SUDO",
-      "image": "https://raw.githubusercontent.com/MinhBeoStore/BEO-MOD-Z/main/IMG_0889.jpeg",
-      "packages": [
-        {
-          "name": "Month",
-          "price": "170.000đ"
-        }
-      ]
     }
   },
   "telegram": "https://t.me/muadong_paris"
