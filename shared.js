@@ -3,7 +3,7 @@
   'use strict';
 
   // 🟢 ĐỔI 2 DÒNG NÀY THÀNH CỦA M
-  const OWNER = 'MinhBeoStore';   // ví dụ: 'minhbeo67'
+  const OWNER = 'minhbeostore';   // ví dụ: 'minhbeo67'
   const REPO  = 'beo-store';
 
   const BRANCH = 'main';
