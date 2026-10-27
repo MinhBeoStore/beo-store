@@ -35,28 +35,6 @@
           "price": "250.000đ"
         }
       ]
-    },
-    "delta-proxy": {
-      "title": "DELTA PROXY",
-      "image": "xnhau.com",
-      "note": "Anti đến khi ban",
-      "packages": [
-        {
-          "name": "Month",
-          "price": "100.000.000đ"
-        }
-      ]
-    },
-    "trollmodz": {
-      "title": "TROLLMODZ",
-      "image": "https://raw.githubusercontent.com/MinhBeoStore/BEO-MOD-Z/main/IMG_0831.jpeg",
-      "note": "Xem bảng giá",
-      "packages": [
-        {
-          "name": "Month",
-          "price": "150.000đ"
-        }
-      ]
     }
   },
   "telegram": "https://t.me/muadong_paris"
