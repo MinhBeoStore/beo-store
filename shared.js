@@ -3,7 +3,7 @@
   'use strict';
 
   // 🟢 ĐỔI 2 DÒNG NÀY THÀNH CỦA M
-  const OWNER = 'USERNAME_GITHUB_CUA_M';   // ví dụ: 'minhbeo67'
+  const OWNER = 'MinhBeoStore';   // ví dụ: 'minhbeo67'
   const REPO  = 'beo-store';
 
   const BRANCH = 'main';
